@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Družinske</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="luxury-page druzinske-page">
+
+
+<header>
+    <img src="Slike/logoooooo.png" alt="Logo" class="logo">
+    <nav>
+        <a href="Dom.html">Domov</a>
+        <a href="Portreti.html">Portreti</a>
+        <a href="druzinske.html">Družinske</a>
+        <a href="Dogodki.html">Dogodki</a>
+        <a href="booking.html">Rezervacije</a>
+        <a href="Opis.html">O nas</a>
+        <span id="auth-links" class="ime_prijavljenega"></span>
+    </nav>
+</header>
+
+<<section class="lux-hero">
+    <div class="lux-overlay"></div>
+    <div class="lux-content">
+        <h1>Družinsko fotografiranje</h1>
+        <p>Veselje. Radost. Nepozabni trenutki.</p>
+
+    </div>
+</section>
+
+<section class="lux-opis">
+    <p>
+        Družinska fotografija ni le posnetek. Je toplina, povezanost in skupni trenutki.
+        Ustvarjamo iskrene, brezčasne fotografije, ki ohranijo ljubezen,
+        smeh in pristne odnose med generacijami.
+    </p>
+
+</section>
+
+<section class="galerija">
+    <div class="galerija-grid">
+        <img src="Slike/Druzinske/druzinska1.jpg" alt="Družinska fotografija">
+        <img src="Slike/Druzinske/druzinska2.jpg" alt="Družinska fotografija">
+        <img src="Slike/Druzinske/druzinska3.jpg" alt="Družinska fotografija">
+        <img src="Slike/Druzinske/druzinska4.jpg" alt="Družinska fotografija">
+        <img src="Slike/Druzinske/druzinska5.jpg" alt="Družinska fotografija">
+        <img src="Slike/Druzinske/druzinska6.jpg" alt="Družinska fotografija">
+    </div>
+</section>
+<section class="lux-cta">
+    <h2>Rezervirajte svojo izkušnjo</h2>
+    <a href="booking.html" class="lux-btn">Rezerviraj termin</a>
+</section>
+<footer class="footer">
+    <div class="footer-left">
+        <p>Telefon: +386 31 123 456</p>
+        <p>Email: info@fotoart.si</p>
+    </div>
+
+    <div class="footer-center">
+        <h3>FOTOART</h3>
+        <p>© 2025 Fotoart</p>
+    </div>
+
+    <div class="footer-right">
+        <p>Ljubljana, Slovenija</p>
+        <p>Davčna: SI12345678</p>
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <img class="lightbox-img" id="lightbox-img">
+    <span class="next">&#10095;</span>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const images = document.querySelectorAll(".galerija-grid img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+
+    let currentIndex = 0;
+
+    /* Odpri lightbox */
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+            currentIndex = index;
+        });
+    });
+
+    /* Zapri */
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    /* Naslednja */
+    function showNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    /* Prejšnja */
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
+
+    /* Tipkovnica */
+    document.addEventListener("keydown", (e) => {
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowRight") showNext();
+            if (e.key === "ArrowLeft") showPrev();
+            if (e.key === "Escape") closeLightbox();
+        }
+    });
+
+});
+</script>
+
+<script>
+fetch('/current-user')
+.then(res => res.json())
+.then(data => {
+    const authLinks = document.getElementById('auth-links');
+
+    if(data.user){
+        authLinks.innerHTML = ` | Prijavljen kot: <span class="user-name">${data.user}</span> <a href="/logout">Odjava</a>`;
+    } else {
+        authLinks.innerHTML = ` | <a href="login.html">Prijava</a> | <a href="register.html">Registracija</a>`;
+    }
+});
+</script>
+
+
+</body>
+</html>

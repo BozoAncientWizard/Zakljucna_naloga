@@ -1,0 +1,1203 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+    color: #333;
+
+}
+
+header {
+    background: #1e1e1e;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: PlayfairDisplay;
+}
+
+nav a {
+    position: relative;
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    padding-bottom: 4px;
+    transition: 0.3s ease;
+    font-family: PlayfairDisplay;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #ffffff;
+    transition: 0.35s ease;
+}
+
+nav a:hover {
+    color: #a8a8a8;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: url("Slike/poroka.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 400px;
+    color: white;
+}
+
+.hero h2 {
+    font-size: 46px;
+    margin-bottom: 10px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    font-family: PlayfairDisplay;
+    letter-spacing: 2px;
+
+}
+
+.hero p {
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    font-family: PlayfairDisplay;
+
+}
+.opis {
+    font-size: 24px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    color: #555;
+    font-family: PlayfairDisplay;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    background: #b0b0b0;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-size: 18px;
+    font-family: PlayfairDisplay;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+
+.btn:hover {
+    background: #959595;
+    transform: translateY(-3px);
+}
+.btn2{
+    display: inline-block;
+    padding: 12px 26px;
+    background: #b0b0b0;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-size: 18px;
+}
+.btn2:hover {
+    background: #959595;
+    transform: translateY(-3px);
+}s
+
+.offers {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+}
+
+.offer-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+}
+
+/* BOOKING FORM */
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    gap: 14px;
+    margin: 60px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.booking-form input, 
+.booking-form select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.tri-slike {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px 0;
+}
+
+.slika-blok {
+    text-align: center;
+    max-width: 380px;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease;
+}
+
+.slika-blok img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.4s ease;
+}
+
+.slika-blok:hover img {
+    transform: scale(1.06);
+}
+
+.slika-blok p {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
+.footer {
+    background: #111;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer div {
+    width: 33%;
+}
+
+.footer-left, .footer-right {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-center h3 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+.footer-center p {
+    margin-top: 8px;
+    font-size: 14px;
+}
+.page-title {
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+}
+
+.page-title h2 {
+    font-size: 50px;
+    font-family: PlayfairDisplay;
+    letter-spacing: 2px;
+}
+
+.portret-opis {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.6;
+    font-family: PlayfairDisplay;
+    color: #555;
+}
+
+.galerija {
+    padding: 0 60px 80px 60px;
+}
+
+.galerija-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.galerija-grid img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galerija-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+.about-title {
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+}
+
+.about-title h1 {
+    font-size: 48px;
+    font-family: PlayfairDisplay;
+    letter-spacing: 2px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 40px 80px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    max-width: 500px;
+    font-family: PlayfairDisplay;
+    font-size: 25px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.about-image img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.contact-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.contact-section h2 {
+    font-family: PlayfairDisplay;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #262a32;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.email-link:hover {
+    color: #576fa1;
+}
+
+.map-section {
+    padding: 40px 60px 80px 60px;
+    text-align: center;
+}
+
+.map-section h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.map-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+.booking-header {
+    text-align: center;
+    padding: 60px 20px 30px 20px;
+}
+
+.booking-header h1 {
+    font-size: 50px;
+    font-family: PlayfairDisplay;
+}
+
+.booking-header p {
+    max-width: 700px;
+    margin: 20px auto;
+    font-family: PlayfairDisplay;
+    font-size: 20px;
+    color: #555;
+}
+
+.booking-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px 60px 80px 60px;
+    flex-wrap: wrap;
+}
+
+.booking-info {
+    max-width: 350px;
+    font-family: PlayfairDisplay;
+    font-size: 18px;
+    color: #555;
+}
+
+.booking-info h2 {
+    font-family: PlayfairDisplay;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.booking-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-info li {
+    margin-bottom: 12px;
+}
+
+
+/* OZADJE SEKCIJE */
+.booking-section {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+    padding: 40px 20px;
+}
+
+/* GLASS CARD */
+.booking-card {
+    width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+.booking-card h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* INPUT GROUP */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 14px 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.input-group textarea {
+    resize: none;
+}
+
+/* FOCUS EFEKT */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+}
+
+/* FLOATING LABEL */
+.input-group label {
+    position: absolute;
+    top: 14px;
+    left: 12px;
+    color: #777;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s ease;
+    background: white;
+    padding: 0 4px;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label,
+.input-group select:focus + label,
+.input-group select:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: #000;
+}
+
+/* GUMB */
+.modern-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.modern-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ANIMACIJA */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.checkbox {
+    font-size: 14px;
+}
+
+
+
+/* LIGHTBOX */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    animation: zoomIn 0.3s ease;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hover efekt na galeriji */
+.galerija-grid img {
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.galerija-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Animacija */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 18px 22px;
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1000; /* zvišaj z-index */
+}
+
+.prev:hover, .next:hover {
+    color: #9a9a9a;
+}
+
+.prev {
+    left: 10px; /* premakni nazaj v slider */
+}
+
+.next {
+    right: 10px; /* premakni nazaj v slider */
+}
+
+.full-slider {
+    position: relative;
+    width: 100%;
+    overflow: visible; /* pusti visible */
+}
+
+
+
+.contact-form {
+    max-width: 500px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: black;
+    outline: none;
+}
+
+.btn-send {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    background: #333;
+}
+/* FULL WIDTH SLIDER */
+.full-slider {
+    position: relative;
+    width: 80%;      
+    max-width: 800px;   
+    margin: 0 auto;     
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+
+
+
+/* ---------------- Hero sekcija ---------------- */
+.hero-section {
+    text-align: center;
+    padding: 120px 20px;
+    background: url("Slike/hero.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 80vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    font-family: PlayfairDisplay;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    font-family: PlayfairDisplay;
+}
+
+/* ---------------- Features sekcija ---------------- */
+.features {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: PlayfairDisplay;
+}
+
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    font-family: PlayfairDisplay;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 300px;   
+    object-fit: cover;  
+    border-radius: 4px; 
+}
+
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-family: PlayfairDisplay;
+}
+
+
+/* ---------------- Portfolio / galerija ---------------- */
+.portfolio {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: PlayfairDisplay;
+}
+
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s;
+    height: 400px;
+}
+
+.portfolio-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* ---------------- Testimonials / mnenja ---------------- */
+.testimonials {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: PlayfairDisplay;
+}
+
+.testimonial-slider {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonial h4 {
+    font-weight: 600;
+}
+
+/* ---------------- Process / koraki ---------------- */
+.process {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.process h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: PlayfairDisplay;
+}
+
+.process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.step {
+    background: #f1f1f1;
+    padding: 30px 20px;
+    border-radius: 12px;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step h3 {
+    margin-bottom: 15px;
+    font-family: PlayfairDisplay;
+}
+
+.step p {
+    font-size: 0.95rem;
+}
+
+/* ---------------- CTA gumbi (hero/feature) ---------------- */
+.hero-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    font-family: PlayfairDisplay;
+}
+
+.hero-btn:hover {
+    background: #333;
+    transform: translateY(-3px);
+}
+
+
+
+
+
+
+
+   /* CART SECTION STYLING */
+.cart-section {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    font-family: 'PlayfairDisplay', serif;
+}
+
+.cart-section h1, 
+.cart-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.cart-details p {
+    font-size: 18px;
+    margin: 6px 0;
+    color: #555;
+}
+
+.cart-details strong {
+    color: #000;
+}
+
+.cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cost-table thead {
+    background: #e0e0e0;
+}
+
+.cost-table th, 
+.cost-table td {
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cost-table tr:last-child td {
+    border-bottom: none;
+    font-weight: bold;
+    background: #f0f0f0;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.input-group select:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+#paypal-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+
+@media (max-width: 768px){
+    .cart-section {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .cost-table th, 
+    .cost-table td {
+        font-size: 16px;
+        padding: 10px 8px;
+    }
+
+    .cart-details p {
+        font-size: 16px;
+    }
+}
+
+
+/* CENIK */
+.pricing {
+    padding: 60px 10%;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-family: PlayfairDisplay;
+}
+
+.pricing-table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pricing-row {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 120px;
+    align-items: center;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    font-size: 20px;
+    font-family: PlayfairDisplay;
+}
+
+.pricing-row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.pricing-row.header {
+    font-weight: bold;
+    background: #111;
+    color: white;
+}
+
+.service {
+    font-weight: 600;
+}
+
+.description {
+    font-size: 15px;
+    color: #555;
+    padding: 0 20px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .pricing-row {
+        grid-template-columns: 1fr;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .pricing-row.header {
+        display: none;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+}
+.ime_prijavljenega{
+    color: #909090;
+    font-weight: bold;
+}
+
+
+/* ============================= */
+/* LUXURY PAGE ONLY (PORTRETI)  */
+/* ============================= */
+
+.luxury-page {
+    background: #0d0d0d;
+    color: white;
+}
+
+/* Hero */
+.luxury-page .lux-hero {
+    position: relative;
+    height: 85vh;
+    background: url("Slike/Portreti/portret1.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.luxury-page .lux-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+}
+
+.luxury-page .lux-content {
+    position: relative;
+    z-index: 2;
+}
+
+.luxury-page .lux-content h1 {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    font-family: PlayfairDisplay;
+    margin-bottom: 20px;
+}
+
+.luxury-page .lux-content p {
+    font-size: 1.4rem;
+    letter-spacing: 6px;
+    color: #b6a878;
+}
+
+/* Opis */
+.luxury-page .lux-opis {
+    background: #111;
+    color: #ddd;
+    text-align: center;
+    padding: 100px 20%;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-family: PlayfairDisplay;
+}
+
+/* Galerija */
+.luxury-page .galerija {
+    background: #0d0d0d;
+    padding: 80px 8%;
+}
+
+.luxury-page .galerija-grid img {
+    border-radius: 0;
+    filter: brightness(0.85);
+    transition: 0.5s ease;
+}
+
+.luxury-page .galerija-grid img:hover {
+    filter: brightness(1);
+    transform: scale(1.03);
+}
+
+/* CTA */
+.luxury-page .lux-cta {
+    background: #111;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.luxury-page .lux-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.luxury-page .lux-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 1px solid #b6a878;
+    color: #b6a878;
+    text-decoration: none;
+    letter-spacing: 3px;
+    transition: 0.4s ease;
+}
+
+.luxury-page .lux-btn:hover {
+    background: #b6a878;
+    color: black;
+}
+
+/* PORTRETI */
+.portreti-page .lux-hero {
+    background: url("Slike/Portreti/portret1.jpg") center/cover no-repeat;
+}
+
+/* DRUŽINSKE */
+.druzinske-page .lux-hero {
+    background: url("Slike/Druzinske/druzinska1.jpg") center/cover no-repeat;
+}
+
+/* DOGODKI */
+.dogodki-page .lux-hero {
+    background: url("Slike/Dogodki/dogodek1.jpg") center/cover no-repeat;
+}
+
+
+
+ @font-face { font-family: Tangerine; src: url("fonts/Tangerine-Regular.ttf"); } 
+ @font-face { font-family: Business; src: url("fonts/Quintessential-Regular.ttf"); } 

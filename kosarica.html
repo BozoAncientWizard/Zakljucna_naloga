@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Košarica</title>
+<script src="https://www.paypal.com/sdk/js?client-id=AbDl9wImNmJjenfIdSgsQyCewq5RuQKEKpypY2ndliXxhxGpBoXOtn7Vljh7XEL9XlFS-xycV0uKL9HI&currency=EUR"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="Slike/logoooooo.png" alt="Logo" class="logo">
+    <nav>
+        <a href="Dom.html">Domov</a>
+        <a href="Portreti.html">Portreti</a>
+        <a href="druzinske.html">Družinske</a>
+        <a href="Dogodki.html">Dogodki</a>
+        <a href="booking.html">Rezervacije</a>
+        <a href="Opis.html">O nas</a>
+        <span id="auth-links" class="ime_prijavljenega"></span>
+    </nav>
+</header>
+
+<section class="cart-section">
+    <h1>Vaša košarica</h1>
+
+    <div class="cart-details">
+        <p><strong>Ime in priimek:</strong> <span id="ime"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Telefon:</strong> <span id="telefon"></span></p>
+        <p><strong>Datum:</strong> <span id="datum"></span></p>
+        <p><strong>Storitev:</strong> <span id="storitev"></span></p>
+        <p><strong>Sporočilo:</strong> <span id="sporocilo"></span></p>
+    </div>
+
+    <h2>Izberi način dostave</h2>
+    <div class="input-group">
+        <select name="dostava" id="dostava" required>
+            <option value="" disabled selected>Izberi način dostave</option>
+            <option value="Digitalno">Digitalno (Email)</option>
+            <option value="Po pošti">Po pošti (foto paket)</option>
+        </select>
+    </div>
+
+    <!-- Obrazec za naslov dostave -->
+    <div id="delivery-address" style="display:none;">
+        <h3>Naslov za dostavo</h3>
+        <div class="input-group">
+            <input type="text" id="street" required>
+            <label>Ulica in hišna številka</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="postal" required>
+            <label>Poštna številka</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="city" required>
+            <label>Mesto</label>
+        </div>
+    </div>
+
+    <table class="cost-table">
+        <thead>
+            <tr>
+                <th>Storitve</th>
+                <th>Dostava</th>
+                <th>Skupna cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="costService">0 €</td>
+                <td id="costDelivery">0 €</td>
+                <td id="costTotal">0 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="paypal-button-container"></div>
+</section>
+
+<footer class="footer">
+    <div class="footer-left">
+        <p>Telefon: +386 31 123 456</p>
+        <p>Email: info@fotoart.si</p>
+    </div>
+    <div class="footer-center">
+        <h3>FOTOART</h3>
+        <p>© 2025 Fotoart</p>
+    </div>
+    <div class="footer-right">
+        <p>Ljubljana, Slovenija</p>
+        <p>Davčna: SI12345678</p>
+    </div>
+</footer>
+
+<script>
+// ---- Preberi podatke iz URL-ja ----
+const urlParams = new URLSearchParams(window.location.search);
+document.getElementById("ime").textContent = urlParams.get("ime") || "";
+document.getElementById("email").textContent = urlParams.get("email") || "";
+document.getElementById("telefon").textContent = urlParams.get("telefon") || "";
+document.getElementById("datum").textContent = urlParams.get("datum") || "";
+const storitevRaw = urlParams.get("storitev") || "";
+const storitev = storitevRaw.trim();
+document.getElementById("storitev").textContent = storitev;
+document.getElementById("sporocilo").textContent = urlParams.get("sporocilo") || "";
+
+// ---- Cene storitev ----
+const cene = {
+    "portretno fotografiranje": 40,
+    "družinsko fotografiranje": 80,
+    "dogodki": 120
+};
+let cenaStoritev = cene[storitev.toLowerCase()] || 50;
+
+// elementi za prikaz cen
+const costService = document.getElementById("costService");
+const costDelivery = document.getElementById("costDelivery");
+const costTotal = document.getElementById("costTotal");
+const dostavaSelect = document.getElementById("dostava");
+
+// elementi za naslov dostave
+const deliveryDiv = document.getElementById("delivery-address");
+const streetInput = document.getElementById("street");
+const postalInput = document.getElementById("postal");
+const cityInput = document.getElementById("city");
+
+// privzeta vrednost dostave
+if (!dostavaSelect.value) dostavaSelect.value = "Digitalno";
+
+// funkcija za izračun cen
+function updateCosts() {
+    let dostava = dostavaSelect.value || "Digitalno"; 
+    let dostavaCena = dostava === "Po pošti" ? 10 : 0;
+    costService.textContent = cenaStoritev.toFixed(2) + " €";
+    costDelivery.textContent = dostavaCena.toFixed(2) + " €";
+    costTotal.textContent = (cenaStoritev + dostavaCena).toFixed(2) + " €";
+    return cenaStoritev + dostavaCena;
+}
+
+// pokaži/skrij naslov dostave
+dostavaSelect.addEventListener("change", function() {
+    if (dostavaSelect.value === "Po pošti") {
+        deliveryDiv.style.display = "block";
+        streetInput.required = true;
+        postalInput.required = true;
+        cityInput.required = true;
+    } else {
+        deliveryDiv.style.display = "none";
+        streetInput.required = false;
+        postalInput.required = false;
+        cityInput.required = false;
+    }
+    updateCosts();
+});
+
+// posodobi cene ob nalaganju strani
+updateCosts();
+
+// ---- PayPal gumb ----
+paypal.Buttons({
+    createOrder: function(data, actions) {
+        if (!dostavaSelect.value) {
+            alert("Prosim izberite način dostave!");
+            return;
+        }
+        if (dostavaSelect.value === "Po pošti") {
+            if (!streetInput.value || !postalInput.value || !cityInput.value) {
+                alert("Prosim izpolnite naslov za dostavo!");
+                return;
+            }
+        }
+        const total = updateCosts();
+        return actions.order.create({
+            purchase_units: [{
+                amount: { value: total.toFixed(2) },
+                description: storitev + " - Dostava: " + dostavaSelect.value
+            }]
+        });
+    },
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Hvala, ' + details.payer.name.given_name + '! Plačilo je uspešno izvedeno.');
+            window.location.href = "Dom.html";
+        });
+    },
+    onCancel: function(data) {
+        alert("Plačilo je preklicano.");
+    }
+}).render('#paypal-button-container');
+
+</script>
+
+<script>
+fetch('/current-user')
+.then(res => res.json())
+.then(data => {
+    const authLinks = document.getElementById('auth-links');
+
+    if(data.user){
+        authLinks.innerHTML = ` | Prijavljen kot: <span class="user-name">${data.user}</span> <a href="/logout">Odjava</a>`;
+    } else {
+        authLinks.innerHTML = ` | <a href="login.html">Prijava</a> | <a href="register.html">Registracija</a>`;
+    }
+});
+</script>
+
+
+</body>
+</html>

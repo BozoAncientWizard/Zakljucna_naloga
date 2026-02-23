@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Domov</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="Slike/logoooooo.png" alt="Logo" class="logo">
+    <nav id="main-nav">
+        <a href="Dom.html">Domov</a>
+        <a href="Portreti.html">Portreti</a>
+        <a href="druzinske.html">Družinske</a>
+        <a href="Dogodki.html">Dogodki</a>
+        <a href="booking.html">Rezervacije</a>
+        <a href="Opis.html">O nas</a>
+        <!-- Login/Logout gumbi -->
+        <span id="auth-links" class="ime_prijavljenega"></span>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Profesionalno fotografiranje</h2>
+    <a href="booking.html" class="btn">Rezerviraj</a>
+</section>
+
+<section class="opis">
+    <p>
+        Dobrodošli na naši spletni strani Fotoart, kjer ponujamo vrhunske fotografske storitve za vse vaše potrebe.
+        Ne glede na to, ali potrebujete portretno fotografijo, družinsko slikanje ali fotografiranje posebnih dogodkov, 
+        smo tukaj, da ujamemo vaše najlepše trenutke z ustvarjalnostjo in strokovnostjo.
+    </p>
+    <a href="Opis.html" class="btn2">Spoznaj nas</a>
+</section>
+
+<section class="tri-slike">
+    <a href="Portreti.html" class="slika-blok">
+        <img src="Slike/Portreti/portret.jpg" alt="Portretne fotografije">
+        <p>PORTRETNE FOTOGRAFIJE</p>
+    </a>
+    <a href="druzinske.html" class="slika-blok">
+        <img src="Slike/Druzinske/druzinska1.jpg" alt="Družinske fotografije">
+        <p>DRUŽINSKE FOTOGRAFIJE</p>
+    </a>
+    <a href="Dogodki.html" class="slika-blok">
+        <img src="Slike/Dogodki/dogodek.jpg" alt="Dogodki">
+        <p>DOGODKI</p>
+    </a>
+</section>
+
+<section class="full-slider">
+    <div class="slider">
+        <img src="Slike/Dogodki/dogodek1.jpg" class="slide active">
+        <img src="Slike/Druzinske/druzinska1.jpg" class="slide">
+        <img src="Slike/Portreti/portret1.jpg" class="slide">
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</section>
+
+<footer class="footer">
+    <div class="footer-left">
+        <p>Telefon: +386 31 123 456</p>
+        <p>Email: info@fotoart.si</p>
+    </div>
+
+    <div class="footer-center">
+        <h3>FOTOART</h3>
+        <p>© 2025 Fotoart, Vse pravice pridržane</p>
+    </div>
+
+    <div class="footer-right">
+        <p>Naslov: Ljubljana, Slovenija</p>
+        <p>Davčna: SI12345678</p>
+    </div>
+</footer>
+
+<!-- Slider Script -->
+<script>
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+}
+
+document.querySelector(".next").addEventListener("click", () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+});
+
+/* Samodejno menjavanje */
+setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}, 4000);
+</script>
+
+<!-- Login/Logout Script -->
+<script>
+fetch('/current-user')
+.then(res => res.json())
+.then(data => {
+    const authLinks = document.getElementById('auth-links');
+
+    if(data.user){
+        // Če je prijavljen
+        authLinks.innerHTML = `  | Prijavljen kot: ${data.user} <a href="/logout">Odjava</a>`;
+    } else {
+        // Če ni prijave
+        authLinks.innerHTML = `  | <a href="login.html">Prijava</a> | <a href="register.html">Registracija</a>`;
+    }
+});
+</script>
+
+</body>
+</html>
